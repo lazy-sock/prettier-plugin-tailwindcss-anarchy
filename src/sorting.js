@@ -82,7 +82,6 @@ export function sortClasses(
 }
 
 export function sortClassList(classList, { env }) {
-  console.log(classList);
   let classNamesWithOrder = env.context.getClassOrder
     ? env.context.getClassOrder(classList)
     : getClassOrderPolyfill(classList, { env })
@@ -98,3 +97,26 @@ export function sortClassList(classList, { env }) {
     })
     .map(([className]) => className)
 }
+
+// export function sortClassList(classList, { env }) {
+//   let classNamesWithOrder = env.context.getClassOrder
+//     ? env.context.getClassOrder(classList)
+//     : getClassOrderPolyfill(classList, { env })
+
+//   return classNamesWithOrder
+//     .sort(() => Math.random() - 0.5)
+//     .map(([className]) => className)
+// }
+
+// export function sortClassList(classList, { env }) {
+//   let classNamesWithOrder = env.context.getClassOrder
+//     ? env.context.getClassOrder(classList)
+//     : getClassOrderPolyfill(classList, { env })
+
+//   for (let i = classNamesWithOrder.length - 1; i > 0; i--) {
+//     let j = Math.floor(Math.random() * (i + 1));
+//     [classNamesWithOrder[i], classNamesWithOrder[j]] = [classNamesWithOrder[j], classNamesWithOrder[i]];
+//   }
+
+//   return classNamesWithOrder.map(([className]) => className)
+// }
