@@ -86,37 +86,13 @@ export function sortClassList(classList, { env }) {
     ? env.context.getClassOrder(classList)
     : getClassOrderPolyfill(classList, { env })
 
-  return classNamesWithOrder
-    .sort(([, a], [, z]) => {
-      if (a === z) return 0
-      // if (a === null) return options.unknownClassPosition === 'start' ? -1 : 1
-      // if (z === null) return options.unknownClassPosition === 'start' ? 1 : -1
-      if (a === null) return -1
-      if (z === null) return 1
-      return bigSign(a - z)
-    })
-    .map(([className]) => className)
+  for (let i = classNamesWithOrder.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1))
+    ;[classNamesWithOrder[i], classNamesWithOrder[j]] = [
+      classNamesWithOrder[j],
+      classNamesWithOrder[i],
+    ]
+  }
+
+  return classNamesWithOrder.map(([className]) => className)
 }
-
-// export function sortClassList(classList, { env }) {
-//   let classNamesWithOrder = env.context.getClassOrder
-//     ? env.context.getClassOrder(classList)
-//     : getClassOrderPolyfill(classList, { env })
-
-//   return classNamesWithOrder
-//     .sort(() => Math.random() - 0.5)
-//     .map(([className]) => className)
-// }
-
-// export function sortClassList(classList, { env }) {
-//   let classNamesWithOrder = env.context.getClassOrder
-//     ? env.context.getClassOrder(classList)
-//     : getClassOrderPolyfill(classList, { env })
-
-//   for (let i = classNamesWithOrder.length - 1; i > 0; i--) {
-//     let j = Math.floor(Math.random() * (i + 1));
-//     [classNamesWithOrder[i], classNamesWithOrder[j]] = [classNamesWithOrder[j], classNamesWithOrder[i]];
-//   }
-
-//   return classNamesWithOrder.map(([className]) => className)
-// }
