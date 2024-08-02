@@ -1,7 +1,7 @@
 {
-  "name": "prettier-plugin-tailwindcss",
-  "version": "0.5.5",
-  "description": "A Prettier plugin for sorting Tailwind CSS classes.",
+  "name": "prettier-plugin-tailwindcss-anarchy",
+  "version": "0.1.0",
+  "description": "A Prettier plugin for sorting Tailwind CSS classes randomly.",
   "license": "MIT",
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",
@@ -11,10 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/tailwindlabs/prettier-plugin-tailwindcss"
-  },
-  "bugs": {
-    "url": "https://github.com/tailwindlabs/prettier-plugin-tailwindcss/issues"
+    "url": "git+https://github.com/lazy-sock/prettier-plugin-tailwindcss-anarchy.git"
   },
   "scripts": {
     "_pre": "rimraf dist && cpy node_modules/tailwindcss/lib/css dist/css",
@@ -134,5 +131,11 @@
   },
   "jest": {
     "testTimeout": 15000
-  }
+  },
+  "homepage": "https://github.com/lazy-sock/prettier-plugin-tailwindcss-anarchy.git",
+  "keywords": [
+    "prettier",
+    "tailwindcss"
+  ],
+  "author": "lazy_sock"
 }
